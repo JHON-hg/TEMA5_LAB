@@ -52,8 +52,7 @@ class Program
     // =================================================================================
     static void MostrarContactos()
     {
-        if (File.Exists("contactos_fund.txt"))
-        {
+        if (File.Exists("contactos_fund.txt")){
             using (var archivo = new StreamReader("contactos_fund.txt", Encoding.UTF8))
             {
                 string linea = archivo.ReadLine();
@@ -61,11 +60,9 @@ class Program
                 Console.WriteLine("-----------------------------------");
                 Console.WriteLine("| ID   | Nombre      | Teléfono   |");
                 Console.WriteLine("-----------------------------------");
-                while (linea != null)
-                {
+                while (linea != null){
                     string[] datos = linea.Split(',');
-                    if (datos.Length == 3)
-                    {
+                    if (datos.Length == 3){
                         Console.WriteLine($"| {datos[0]}    | {datos[1]}       | {datos[2]} |");
                         Console.WriteLine("-----------------------------------");
                     }
@@ -73,8 +70,7 @@ class Program
                 }
             }
         }
-        else
-        {
+        else{
             Console.WriteLine("Contacto no encontrado...");
         }
 
