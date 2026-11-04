@@ -119,4 +119,10 @@ class Program
         }
         Console.WriteLine("Cantidad de contactos: " + cantidad);
     }
+// ================================================================================
+// ================================================================================
+static void ArchivoBinario()
+    {
+        Console.WriteLine("Muy complicado, no se como implementar mis ideas... ");
+    }
 }
