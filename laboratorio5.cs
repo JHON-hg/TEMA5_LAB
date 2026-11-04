@@ -48,28 +48,39 @@ class Program
         }
         Console.WriteLine("contacto guardado...");
     }
-// =================================================================================
-// =================================================================================
+    // =================================================================================
+    // =================================================================================
     static void MostrarContactos()
     {
-        if (File.Exists("contactos_fund.txt")){
-            using (var archivo = new StreamReader("contactos_fund.txt", Encoding.UTF8)){
+        if (File.Exists("contactos_fund.txt"))
+        {
+            using (var archivo = new StreamReader("contactos_fund.txt", Encoding.UTF8))
+            {
                 string linea = archivo.ReadLine();
-                while (linea != null){
+
+                Console.WriteLine("-----------------------------------");
+                Console.WriteLine("| ID   | Nombre      | Teléfono   |");
+                Console.WriteLine("-----------------------------------");
+                while (linea != null)
+                {
                     string[] datos = linea.Split(',');
-                    if (datos.Length == 3){
-                        Console.WriteLine("ID: " + datos[0] + ", Nombre: " + datos[1] + ", Telefono: " + datos[2]);
+                    if (datos.Length == 3)
+                    {
+                        Console.WriteLine($"| {datos[0]}    | {datos[1]}       | {datos[2]} |");
+                        Console.WriteLine("-----------------------------------");
                     }
                     linea = archivo.ReadLine();
                 }
             }
         }
-        else{
+        else
+        {
             Console.WriteLine("Contacto no encontrado...");
         }
+
     }
-// ================================================================================
-// ================================================================================
+    // ================================================================================
+    // ================================================================================
     static void BuscarContacto()
     {
         Console.Write("Escribe el ID que quieres buscar: ");
@@ -84,8 +95,7 @@ class Program
                 {
                     string[] datos = linea.Split(',');
                     if (datos.Length == 3 && datos[0] == idBuscado){
-                        Console.WriteLine("Encontrado: " + datos[1]
-                            + " - " + datos[2]);
+                        Console.WriteLine($"Encontrado: {datos[1]} - {datos[2]}");
                         encontrado = true;
                     }
                     linea = archivo.ReadLine();
@@ -117,7 +127,7 @@ class Program
                 }
             }
         }
-        Console.WriteLine("Cantidad de contactos: " + cantidad);
+        Console.WriteLine($"Cantidad de contactos: {cantidad}");
     }
 // ================================================================================
 // ================================================================================
